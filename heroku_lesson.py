@@ -30,7 +30,7 @@ logging.basicConfig(level=logging.INFO)
 # то мы уберем одну подсказку. Как будто что-то меняется :)
 sessionStorage = {}
 
-
+if_end = False
 @app.route('/post', methods=['POST'])
 # Функция получает тело запроса и возвращает ответ.
 # Внутри функции доступен request.json - это JSON,
@@ -53,7 +53,8 @@ def main():
     # Она сформирует оставшиеся поля JSON, которые отвечают
     # непосредственно за ведение диалога
     handle_dialog_eleph(request.json, response)
-    handle_dialog_rabb(request.json, response)
+    if if_end:
+        handle_dialog_rabb(request.json, response)
 
     logging.info(f'Response:  {response!r}')
 
@@ -179,6 +180,7 @@ def get_suggests(user_id, sign):
                 "url": "https://market.yandex.ru/search?text=слон",
                 "hide": True
             })
+            if_end = True
         elif sign == 'rab':
             suggests.append({
                 "title": "Ладно",
