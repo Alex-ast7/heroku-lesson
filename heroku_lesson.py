@@ -53,6 +53,7 @@ def main():
     # Она сформирует оставшиеся поля JSON, которые отвечают
     # непосредственно за ведение диалога
     handle_dialog_eleph(request.json, response)
+    handle_dialog_rabb(request.json, response)
 
     logging.info(f'Response:  {response!r}')
 
