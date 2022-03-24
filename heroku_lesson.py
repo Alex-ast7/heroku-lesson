@@ -148,7 +148,7 @@ def handle_dialog_rabb(req, res):
     ]:
         # Пользователь согласился, прощаемся.
         res['response']['text'] = 'Кролика можно найти на Яндекс.Маркете!'
-        res['response']['end_session'] = True
+        # res['response']['end_session'] = True
         return
 
     # Если нет, то убеждаем его купить слона!
