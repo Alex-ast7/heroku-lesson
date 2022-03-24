@@ -101,7 +101,7 @@ def handle_dialog_eleph(req, res):
     ]:
         # Пользователь согласился, прощаемся.
         res['response']['text'] = 'Слона можно найти на Яндекс.Маркете!'
-        res['response']['end_session'] = True
+        # res['response']['end_session'] = True
         return
 
     # Если нет, то убеждаем его купить слона!
